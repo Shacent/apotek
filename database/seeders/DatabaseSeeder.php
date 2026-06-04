@@ -12,11 +12,18 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
+        // Admin Default
         User::create([
             'nama' => 'Administrator',
             'username' => 'admin',
             'password' => bcrypt('admin123'),
             'role' => 'admin',
+        ]);
+
+        // Seeder Master Data
+        $this->call([
+            KategoriObatSeeder::class,
+            ObatSeeder::class,
         ]);
     }
 }
