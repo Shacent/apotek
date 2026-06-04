@@ -8,6 +8,10 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\ObatMasukController;
 use App\Http\Controllers\ObatKeluarController;
+use App\Http\Controllers\KatalogController;
+
+Route::get('/', [KatalogController::class, 'index'])
+    ->name('katalog');
 
 Route::middleware('guest')->group(function () {
 
@@ -32,5 +36,3 @@ Route::middleware('auth')->group(function () {
     Route::resource('obat-masuk', ObatMasukController::class)->names('obat-masuk');
     Route::resource('obat-keluar', ObatKeluarController::class)->names('obat-keluar');
 });
-
-Route::redirect('/', '/dashboard');
